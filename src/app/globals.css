@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+ * Design tokens. Clinical teal primary on cool slate neutrals; light surfaces only.
+ * Chart colours (--chart-*) come from a validated colour-blind-safe categorical palette and are
+ * deliberately separate from the brand colour, so data series never get confused with UI chrome.
+ */
+:root {
+  --background: #f4f7f8;
+  --foreground: #0e1c24;
+  --card: #ffffff;
+  --card-foreground: #0e1c24;
+  --popover: #ffffff;
+  --popover-foreground: #0e1c24;
+  --primary: #0b6e68;
+  --primary-hover: #095a55;
+  --primary-foreground: #ffffff;
+  --secondary: #eaf0f2;
+  --secondary-foreground: #1d2f39;
+  --muted: #eef3f5;
+  --muted-foreground: #566873;
+  --accent: #e3f2f0;
+  --accent-foreground: #08524d;
+  --destructive: #c0352e;
+  --destructive-foreground: #ffffff;
+  --success: #17803d;
+  --warning: #a8590a;
+  --border: #dde5e9;
+  --input: #cdd8de;
+  --ring: #1a9a91;
+  --radius: 0.75rem;
+
+  --chart-1: #2a78d6; /* patients */
+  --chart-2: #eb6834; /* doctors */
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  --chart-6: #008300;
+  --chart-7: #6250d6;
+  --chart-8: #e34948;
+  --chart-other: #9aa8b0;
+  --chart-grid: #e4eaed;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-card: 0 1px 2px rgb(14 28 36 / 0.04), 0 1px 1px rgb(14 28 36 / 0.03);
+  --shadow-pop: 0 8px 24px -6px rgb(14 28 36 / 0.16), 0 2px 6px rgb(14 28 36 / 0.06);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  /* Tabular numerals wherever figures are compared. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
