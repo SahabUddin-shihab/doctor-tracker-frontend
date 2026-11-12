@@ -3,7 +3,6 @@ import { expect, test, type Page } from '@playwright/test';
 const EMAIL = process.env.E2E_ADMIN_EMAIL ?? 'admin@example.com';
 const PASSWORD = process.env.E2E_ADMIN_PASSWORD ?? 'ChangeMe!12345';
 
-/** Unique per run so repeated runs never collide on the unique doctor email. */
 const RUN = Date.now().toString(36);
 const doctor = {
   name: `Dr. Zephyr${RUN}`,
